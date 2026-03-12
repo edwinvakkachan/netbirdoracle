@@ -4,16 +4,15 @@ services:
   container-monitor:
     build: .
     container_name: container-monitor
-    restart: unless-stopped
+
+    env_file:
+      - .env
 
     volumes:
       - /home/wreath1553/.ssh:/root/.ssh
 
     environment:
-      - TZ=Asia/Kolkata
-
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
+      TZ: Asia/Kolkata
+      REMOTE_USER: ${REMOTE_USER}
+      REMOTE_IP: ${REMOTE_IP}
+      CONTAINER_NAME: ${CONTAINER_NAME}
