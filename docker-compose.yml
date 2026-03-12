@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  monitor:
+    build: .
+    container_name: container-monitor
+    restart: unless-stopped
+    volumes:
+      - ~/.ssh:/root/.ssh:ro
