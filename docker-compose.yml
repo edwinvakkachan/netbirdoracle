@@ -1,9 +1,27 @@
-version: "3"
+version: "3.8"
 
 services:
-  monitor:
+  container-monitor:
     build: .
     container_name: container-monitor
     restart: unless-stopped
+
     volumes:
-      - ~/.ssh:/root/.ssh:ro
+      # your SSH keys from host
+      - /home/wreath1553/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+      - /home/wreath1553/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+
+      # writable known_hosts file
+      - monitor_ssh:/root/.ssh
+
+    environment:
+      - TZ=Asia/Kolkata
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  monitor_ssh:
