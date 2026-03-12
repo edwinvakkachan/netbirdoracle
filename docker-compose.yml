@@ -4,10 +4,6 @@ services:
   container-monitor:
     build: .
     container_name: container-monitor
-
-    env_file:
-      - .env
-
     volumes:
       - /home/wreath1553/.ssh:/root/.ssh
 
