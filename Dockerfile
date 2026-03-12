@@ -6,4 +6,6 @@ WORKDIR /app
 
 COPY restart.sh /app/restart.sh
 
+RUN chmod +x /app/restart.sh
+
 CMD while true; do /app/restart.sh; sleep 300; done
