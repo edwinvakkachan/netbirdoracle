@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  container-monitor:
+  netbirdoracle:
     build: .
-    container_name: container-monitor
+    container_name: netbirdoracle
     volumes:
       - /home/wreath1553/.ssh:/root/.ssh
 
