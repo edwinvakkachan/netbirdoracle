@@ -11,6 +11,9 @@ services:
 
     environment:
       - TZ=Asia/Kolkata
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
 
     logging:
       driver: json-file
