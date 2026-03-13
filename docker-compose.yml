@@ -12,3 +12,6 @@ services:
       REMOTE_USER: ${REMOTE_USER}
       REMOTE_IP: ${REMOTE_IP}
       CONTAINER_NAME: ${CONTAINER_NAME}
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
